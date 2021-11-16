@@ -1,86 +1,123 @@
-#
-# This file contains configuration flags to customize your site
-#
+# SITE CONFIGURATION
+baseurl: ""
+url: "https://sbasischeck.github.io"
+title: sbasischeck– stay in Wonderland! # site's title
+description: "My Site"      # used by search engines
 
-# Name of your site (displayed in the header)
-name: sbasischeck
+defaults:
+  - scope:
+      path: "" # an empty string here means all necessary files are in the project
+    values:
+      image: assets/img/background/book-glass.jpeg
 
-# Short bio or description (displayed in the header)
-description: My Site
+# THEME-SPECIFIC CONFIGURATION
+theme_settings:
+  # Meta
+  avatar: assets/img/sbasischeck.png
+  color_image: /assets/img/lineart.png # In post when you set color
+  favicon: assets/favicon.ico
 
-# URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://raw.githubusercontent.com/sbasischeck/sbasischeck.github.io/main/images/avatar.png
+  # Header and footer text
+  header_text: sbasischeck<br>take the red pill – you stay in Wonderland!  # Change Blog header text
+  header_feature_image: assets/img/background/matrix.jpg
+  footer_text: >
+    Follow the white rabbit!
 
-#
-# Flags below are optional
-#
+  # Blog
+  excerpt: true # Or "truncate" (first 250 characters), "false" to disable
 
-# Includes an icon in the footer for each username you enter
-footer-links:
+  # Icons
+  rss: true  # Make sure you created a feed.xml with feed.xml layout
+  email_address: sbasicheck@gmail.com # Full email address, e.g. "sam@example.com"
+  behance:
+  bitbucket:
   dribbble:
-  email:
   facebook:
   flickr:
-  github: sbasischeck
+  gitlab: "sbasischeck"
+  github: "sbasischeck"
   instagram:
-  linkedin:
+  keybase:
+  linkedin:  # Full URL
   pinterest:
-  rss: # just type anything here for a working RSS icon
-  twitter: sbasischeck
-  stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
-  youtube: # channel/<your_long_string> or user/<user-name>
-  googleplus: # anything in your profile username that comes after plus.google.com/
+  reddit:
+  soundcloud:
+  stack_overflow:
+  stack_exchange:  # Full URL
+  steam:
+  tumblr:
+  twitter: "sbasischeck"
+  vimeo:
+  wordpress:
+  youtube: "sbasischeck"
 
+  # Sharing options
+  share_buttons:
+    facebook:
+    twitter: true
+    tumblr:
+    pinterest:
+    pocket:
+    reddit:
+    linkedin:
+    wordpress:
+    email: true
 
-# Enter your Disqus shortname (not your username) to enable commenting on posts
-# You can find your shortname on the Settings page of your Disqus account
-disqus:
+  # Scripts / Features 
+  google_analytics: # Tracking ID, e.g. "UA-000000-01"
+  disqus_shortname:
+  katex: true # Enable if using math markup
 
-# Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-google_analytics:
+  # Localization strings
+  str_follow_on: "Follow on"
+  str_rss_follow: "Follow RSS feed"
+  str_share_on: "Share on"
+  str_add_to: "Add to"
+  str_email: "Email"
+  str_tweet: "Tweet"
+  str_pin_it: "Pin it"
+  str_next_post: "Next post"
+  str_previous_post: "Previous post"
+  str_next_page: "Next"
+  str_previous_page: "Prev"
+  str_javascript_required_disqus: "Please enable JavaScript to view comments."
 
-# Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
-# Used for Sitemap.xml and your RSS feed
-url:
+  # Post navigation
+  post_navigation: true
 
-# If you're hosting your site at a Project repository on GitHub pages
-# (http://yourusername.github.io/repository-name)
-# and NOT your User repository (http://yourusername.github.io)
-# then add in the baseurl here, like this: "/repository-name"
-baseurl: ""
+  # Colours, typography and padding
+  # Open the "_sass > base" folder, and open "_variables.scss"
 
-#
-# !! You don't need to change any of the configuration flags below !!
-#
+# PAGINATION
+paginate: 20
+paginate_path: "blog/page:num"
 
-permalink: /:title/
+# AUTHORS
+authors:
+  sbasischeck: # author-id
+    name: "Roland Knipp"
+    avatar: "assets/img/avatars/sbasischeck.png"
+    url: https://twitter.com/sbasischeck
 
-# The release of Jekyll Now that you're using
-version: v1.2.0
+# PORTFOLIO
+collections:
+  portfolio:
+    output: true
+    permalink: /:collection/:name
+  microworld:
+    output: true
+    permalink: /:collection/:name
 
-# Jekyll 3 now only supports Kramdown for Markdown
-kramdown:
-  # Use GitHub flavored markdown, including triple backtick fenced code blocks
-  input: GFM
-  # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    # Use existing pygments syntax highlighting css
-    css_class: 'highlight'
-
-# Set the Sass partials directory, as we're using @imports
+# BUILD SETTINGS
+markdown: kramdown
+highlighter: rouge
 sass:
-  style: :expanded # You might prefer to minify using :compressed
+  sass_dir: _sass
+  style: :compressed
+plugins: [jekyll-paginate, jekyll-seo-tag]
+exclude: [".jekyll-cache", "Gemfile", "Gemfile.lock", "type-on-strap.gemspec", "*.gem", ".idea",
+          "LICENSE", "README.md", "screenshot.png", "assets/package.json", "assets/node_modules", 
+          "assets/gulpfile.js", "starter.sh", "updater.sh"]
 
-# Use the following plug-ins
-gems:
-  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
-  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
-
-# Exclude these files from your production _site
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - LICENSE
-  - README.md
-  - CNAME
+# theme: type-on-strap # Uncomment if using the theme as a jekyll theme gem
+remote_theme: sylhare/Type-on-Strap # If using as a remote_theme in github
